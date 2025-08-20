@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LSC-Tomball XR Lab — Lab Hours</title>
+  <style>
+    :root {
+      --ink: #000;
+      --ink-2: #111;
+      --ink-3: #333;
+      --line: #000;
+      --muted: #555;
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    .wrap {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+    }
+
+    .sheet {
+      width: 100%;
+      max-width: 11in; /* landscape width */
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      padding: 0.5in 0.6in;
+      box-sizing: border-box;
+      border: 2px solid var(--line);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.3in;
+    }
+
+    .logo { max-width: 6.5in; height: auto; }
+
+    .qr { text-align: center; }
+    .qr p { margin: 0 0 .12in; font-size: 0.95rem; color: var(--ink-3); }
+    .qr img { width: 2.2in; height: 2.2in; }
+
+    h1.title { margin: 0.2in 0 0; font-size: 1.4rem; color: var(--ink-3); }
+
+    .meta { color: var(--muted); font-size: 0.95rem; margin-top: 0.05in; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 18pt;
+      line-height: 1.2;
+    }
+
+    thead th {
+      text-align: left;
+      border-bottom: 3px solid var(--line);
+      padding: 0.12in 0.14in;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    tbody td {
+      padding: 0.12in 0.14in;
+      border-bottom: 2px solid var(--line);
+      font-weight: 700;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+
+    .footer {
+      margin-top: 0.25in;
+      font-size: 11pt;
+      color: var(--ink-3);
+      text-align: center;
+    }
+    .footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+
+    .actions { margin-top: 0.25in; display: flex; gap: .5rem; justify-content: center; }
+    .btn {
+      border: 2px solid var(--line);
+      background: white;
+      color: var(--ink);
+      padding: .5rem .8rem;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media print {
+      @page { size: Letter landscape; margin: 0.4in; }
+      body { background: #fff; }
+      .wrap { padding: 0; }
+      .sheet {
+        box-shadow: none;
+        border-radius: 0;
+        border: 2px solid var(--line);
+        padding: 0.35in 0.4in;
+        max-width: none;
+        width: 100%;
+      }
+      header { margin-bottom: 0.18in; }
+      .logo { max-width: 6.5in; }
+      .qr img { width: 2.2in; height: 2.2in; }
+      table { font-size: 18pt; }
+      thead th { padding: 0.12in 0.14in; border-bottom-width: 2.5pt; }
+      tbody td { padding: 0.12in 0.14in; border-bottom-width: 2pt; }
+      .actions { display: none !important; }
+      .footer { margin-top: 0.2in; font-size: 10pt; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="sheet" role="document" aria-label="Printable Lab Hours (Landscape)">
+      <header>
+        <div>
+          <img src="XR Lab Logo_Black.png" alt="Lone Star College XR Lab" class="logo" />
+          <h1 class="title">Lab Hours</h1>
+          <div class="meta subtitle">
+            <span id="updated"></span>
+          </div>
+        </div>
+        <div class="qr">
+          <p>Scan to Book</p>
+          <img src="Lab Booking Form QR.png" alt="QR code to booking form" />
+        </div>
+      </header>
+
+      <table aria-label="Lab hours table">
+        <thead>
+          <tr>
+            <th style="width:40%">Day</th>
+            <th style="width:30%">Morning</th>
+            <th style="width:30%">Afternoon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tuesday</td>
+            <td>10:00 AM – 12:30 PM</td>
+            <td>1:00 PM – 4:00 PM</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>10:00 AM – 12:30 PM</td>
+            <td>1:00 PM – 4:00 PM</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>10:00 AM – 12:30 PM</td>
+            <td>1:00 PM – 2:30 PM</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer">
+        Questions? Reach out to <a href="mailto:tc-xrlab@lonestar.edu">TC-XRLab@lonestar.edu</a>
+      </div>
+
+      <div class="actions no-print">
+        <button class="btn" onclick="window.print()">Print</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const el = document.getElementById('updated');
+      if (!el) return;
+      const now = new Date();
+      const opts = { year: 'numeric', month: 'long', day: 'numeric' };
+      el.textContent = 'Updated: ' + now.toLocaleDateString(undefined, opts);
+    })();
+  </script>
+</body>
+</html>
