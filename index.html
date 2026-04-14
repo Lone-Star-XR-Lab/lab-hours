@@ -65,18 +65,25 @@
     }
 
     thead th {
-      text-align: left;
+      text-align: center;
       border-bottom: 3px solid var(--line);
       padding: 0.12in 0.14in;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: .5px;
     }
+    thead th:first-child {
+      text-align: left;
+    }
 
     tbody td {
+      text-align: center;
       padding: 0.12in 0.14in;
       border-bottom: 2px solid var(--line);
       font-weight: 700;
+    }
+    tbody td:first-child {
+      text-align: left;
     }
     tbody tr:last-child td { border-bottom: 0; }
 
@@ -143,25 +150,21 @@
         <thead>
           <tr>
             <th style="width:40%">Day</th>
-            <th style="width:30%">Morning</th>
-            <th style="width:30%">Afternoon</th>
+            <th style="width:60%">Hours</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Tuesday</td>
-            <td>9:00 AM – 12:30 PM</td>
-            <td>1:00 PM – 4:00 PM</td>
+            <td>9:00 AM – 4:00 PM</td>
           </tr>
           <tr>
             <td>Wednesday</td>
-            <td>9:00 AM – 12:30 PM</td>
-            <td>1:00 PM – 4:00 PM</td>
+            <td>9:00 AM – 4:00 PM</td>
           </tr>
           <tr>
             <td>Friday</td>
-            <td>9:00 AM – 12:30 PM</td>
-            <td>1:00 PM – 2:30 PM</td>
+            <td>9:00 AM – 2:30 PM</td>
           </tr>
         </tbody>
       </table>
